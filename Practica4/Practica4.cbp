@@ -15,10 +15,10 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="C:/Users/usuario/Desktop/Practica4/arista.o" />
-					<Add library="C:/Users/usuario/Desktop/Practica4/conjunto.o" />
-					<Add library="C:/Users/usuario/Desktop/Practica4/grafo.o" />
-					<Add library="C:/Users/usuario/Desktop/Practica4/vertice.o" />
+					<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/arista.o" />
+					<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/conjunto.o" />
+					<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/grafo.o" />
+					<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/vertice.o" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -38,6 +38,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/arista.o" />
+			<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/conjunto.o" />
+			<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/grafo.o" />
+			<Add library="D:/Universidad/ED2/Practica4ED2/Practica4/vertice.o" />
+		</Linker>
 		<Unit filename="arista.h" />
 		<Unit filename="conjunto.h" />
 		<Unit filename="grafo.h" />

@@ -5,6 +5,7 @@
 #include <queue>
 #include <sstream>
 #include <map>
+#include <list>
 
 
 using namespace std;
@@ -44,6 +45,7 @@ T verticeMaxCoste(const Grafo<T, float>& G)
 }
 
 
+
 //Ejercicio 2
 template <typename T, typename U>
 void inaccesibles(const Grafo<T, U>& G)
@@ -53,14 +55,10 @@ void inaccesibles(const Grafo<T, U>& G)
 
     Conjunto<Arista<T, float>> ca;
     ca = G.aristas();
-    map<T,bool> d;
     map<int,T> apuntados;
+    bool apuntado;
 
-    for(int i = 0; i < G.numVertices(); i++){
-        T v = cv.quitar().getObj();
-        pair<T, bool> p(v, false);
-        d.insert(v);
-    }
+
 
     int i = 0;
     while(!ca.esVacio()){
@@ -69,12 +67,19 @@ void inaccesibles(const Grafo<T, U>& G)
         i++;
     }
 
-    for(int i = 0; i < apuntados.size() ;i++){
-
+    for(int j = 0; j < G.numVertices(); j++ ){
+            apuntado = false;
+            T v = cv.quitar().getObj();
+        for(int h = 0; h < i; h++){
+            if(v == apuntados[h]){
+                apuntado = true;
+            }
+        }
+        if(!apuntado){
+            cout<< v <<" ";
+        }
     }
-
-
-
+    cout<<endl;
 }
 
 
@@ -82,6 +87,30 @@ void inaccesibles(const Grafo<T, U>& G)
 template <typename T, typename U>
 bool caminoEntreDos(const Grafo<T, U>& G, const T& vo, const T& vd)
 {
+    if(!G.estaVertice(vo) || ! !G.estaVertice(vd)){
+        return false;
+    }
+
+    Conjunto<Vertice<T>> cv = G.vertices();
+    Conjunto<Arista<T, U>> ca = G.aristas();
+
+    T vert = vo;
+    Arista<T, U> a
+
+    queue<T> cola;
+
+    int i = 0;
+    bool encontrado = false;
+    while(!encontrado && i < G.numVertices()){
+        if(vert == vd){
+            encontrado = true;
+            break;
+        }
+    }
+
+
+
+
 }
 
 
@@ -135,10 +164,11 @@ int main()
 
     cout << " Vertice de maximo coste en G: " << verticeMaxCoste(G) << endl;
     cout << " Vertice de maximo coste en H: " << verticeMaxCoste(H) << endl;
-/*
+
     cout << endl << " Vertices inaccesibles en G: ";
     inaccesibles(G);
 
+    /*
     cout << endl << " Camino entre Dos en H de Lepe a Almonte: ";
     cout << (caminoEntreDos(H, string("Lepe"), string("Almonte")) ? " SI " : " NO ") << endl;
     cout << endl << " Camino entre Dos en H de Aljaraque a Lepe: ";
